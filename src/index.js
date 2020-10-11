@@ -26,11 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (button.textContent == "Filter good dogs: OFF"){
         button.textContent = "Filter good dogs: ON"
         document.querySelector('#dog-bar').innerHTML = ""
-        getData()
+        onlyGoodDog()
+
       }else if (button.textContent == "Filter good dogs: ON"){
         button.textContent = "Filter good dogs: OFF"
         document.querySelector('#dog-bar').innerHTML = ""
-        onlyGoodDog()
+        getData()
       }
     })
 
