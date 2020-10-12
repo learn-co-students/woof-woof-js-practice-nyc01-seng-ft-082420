@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const dogClickListener = () => {
     document.addEventListener('click', e => {
+      const dogBar = document.querySelector('#dog-bar')
       if(e.target.dataset.dogId) {
         const dogSpan = e.target
         const dogId = dogSpan.dataset.dogId
@@ -48,20 +49,28 @@ document.addEventListener('DOMContentLoaded', () => {
       } else if(e.target.id === 'good-dog') {
         const dogId = e.target.parentElement.dataset.dogId
 
+        dogBar.innerHTML = ''
         isGoodDog(dogId, 'good')
+        getDogs()
       } else if(e.target.id === 'bad-dog') {
         const dogId = e.target.parentElement.dataset.dogId
 
+        dogBar.innerHTML = ''
         isGoodDog(dogId, 'bad')
+        getDogs()
       } else if(e.target.textContent === 'Filter good dogs: OFF') {
         const filterBtn = document.querySelector('#good-dog-filter')
 
+        dogBar.innerHTML = ''
         filterOn = true
         filterBtn.textContent = "Filter good dogs: ON"
+
         getDogs()
       } else if(e.target.textContent === 'Filter good dogs: ON') {
         const filterBtn = document.querySelector('#good-dog-filter')
+        
 
+        dogBar.innerHTML = ''
         filterOn = false
         filterBtn.textContent = "Filter good dogs: OFF"
         getDogs()
