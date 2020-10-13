@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchDogs()
     selectionHandler()
     toggleButton()
+    filterDogs()
 })
 
 function fetchDogs() {
@@ -99,3 +100,45 @@ function toggleButton() {
         }
     })
 }
+
+function filterDogs() {
+    const filter = document.querySelector("#filter-div")
+    filter.addEventListener("click", e => {
+        if (e.target.matches("#good-dog-filter")) {
+            const allDogs = document.querySelectorAll("span")
+            const badDogs = Array.from(document.querySelectorAll(".dog-div")).filter( dog => dog.dataset.isGoodDog === "false").map(dog => dog.dataset.id)
+            for (dog of allDogs) {
+                if (dog.dataset.id in badDogs) {
+                    dog.style.display = "none"
+                    console.dir(dog)
+                } 
+            }
+            e.target.innerText = "Filter good dogs: ON"
+            e.target.id = "good-dog-filter-off"
+        } else if (e.target.matches("#good-dog-filter-off")) {
+            const allDogs = document.querySelectorAll("span")
+            for (dog of allDogs) {
+                dog.style.display = "block"
+            }
+            e.target.innerText = "Filter good dogs: OFF"
+            e.target.id = "good-dog-filter"
+        }
+    })
+}
+
+
+//     if (clickFilterOn) {
+//         clickFilterOn.addEventListener("click", () => {
+            
+//         })
+//     }
+// }
+
+// function filterDogsOff() {
+//     const clickFilterOff = document.querySelector("#good-dog-filter-off")
+//     if (clickFilterOff) {
+//         clickFilterOff.addEventListener("click", () => {
+            
+//         })
+//     }
+// }
