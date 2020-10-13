@@ -1,0 +1,6 @@
+document.addEventListener("DOMContentLoaded", () => {
+
+    const baseUrl = "http://localhost:3000/pups"
+
+    
+})
