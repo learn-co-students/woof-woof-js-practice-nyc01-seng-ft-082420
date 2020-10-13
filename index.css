@@ -12,6 +12,16 @@
   font-size: 1em;
   height: 5vh;
   border-radius: 3em;
+  padding: 10px 0;
+}
+
+#good-dog-filter-off {
+  margin-top: 1vh;
+  width: 35vw;
+  font-size: 1em;
+  height: 5vh;
+  border-radius: 3em;
+  padding: 10px 0;
 }
 
 #dog-bar {
