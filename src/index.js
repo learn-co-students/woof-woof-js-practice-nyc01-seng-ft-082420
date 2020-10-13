@@ -27,6 +27,7 @@ function renderPup() {
 
     const dogDiv = document.createElement("div")
     dogDiv.classList.add("dog-div")
+    dogDiv.dataset.isGoodDog = pup.isGoodDog
     dogDiv.innerHTML = `
     <img src=${pup.image}>
     <h2>${pup.name}</h2>
@@ -72,6 +73,7 @@ function toggleButton() {
             } else {
                 patch = "true"
             }
+            console.log(e.target.parentElement.dataset.isGoodDog)
             console.log(patch)
             const configObj = {
                 method : "PATCH",
